@@ -46,4 +46,5 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
           
       - run: |
+          az acr login -n ${{ secrets.ACR }}
           docker pull mcr.microsoft.com/hello-world
