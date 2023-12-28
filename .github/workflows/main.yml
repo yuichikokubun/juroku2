@@ -49,3 +49,4 @@ jobs:
           az acr login -n ${{ secrets.ACR }}
           docker pull mcr.microsoft.com/mcr/hello-world
           docker tag mcr.microsoft.com/mcr/hello-world ${{ secrets.ACR }}/samples/hello-world
+          docker push ${{ secrets.ACR }}/samples/hello-world
