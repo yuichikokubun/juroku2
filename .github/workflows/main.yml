@@ -14,26 +14,26 @@ env:
   azcli_verion: 2.46.0
 
 jobs:
-  build:
+  login:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+    # この例では、エンティティ型で environment を指定したので、
+    # environment の名前がサブジェクト識別子に指定した文字列と一致する必要がある
+    environment:
+      name: production
 
-      - name: Azure Login
+    permissions:
+      # OIDC 接続を実行するために必要
+      id-token: write
+
+    steps:
+      - name: Login in to Azure
         uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: ${{ env.azcli_verion }}
-          inlineScript: |
-            az account show --query name
-
-      - name: logout
+      - name: Test access to Azure
         run: |
-          az logout
+          az account show --query name
