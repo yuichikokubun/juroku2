@@ -20,7 +20,7 @@ jobs:
     # この例では、エンティティ型で environment を指定したので、
     # environment の名前がサブジェクト識別子に指定した文字列と一致する必要がある
     environment:
-      name: production
+      name: Development
 
     permissions:
       # OIDC 接続を実行するために必要
