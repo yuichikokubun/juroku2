@@ -4,15 +4,15 @@ inputs:
   username:
     description: 'Container registry username'
     required: true
-    default: ''
+    default: 'ictlinktestkokubun'
   password:
     description: 'Container registry password'
     required: true
-    default: ''
+    default: 'BMt7o3CiRFqd6RzVCdlg+3rbkAPfR7wRqepaGooXBU+ACRAx9obq'
   login-server:
     description: 'Container registry server url'
     required: true
-    default: 'https://index.docker.io/v1/'
+    default: 'https://ictlinktestkokubun.azurecr.io'
 branding:
   color: 'green'
 runs:
