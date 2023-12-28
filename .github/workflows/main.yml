@@ -44,3 +44,6 @@ jobs:
           login-server: ictlinktestkokubun.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+          
+      - run: |
+          docker pull mcr.microsoft.com/hello-world
