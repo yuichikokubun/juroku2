@@ -47,5 +47,5 @@ jobs:
           
       - run: |
           az acr login -n ${{ secrets.ACR }}
-          docker pull mcr.microsoft.com/hello-world
+          docker clone mcr.microsoft.com/hello-world
           docker push ${{ secrets.ACR }}.azurecr.io/test:${{ github.run_number }}
