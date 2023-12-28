@@ -42,8 +42,8 @@ jobs:
         uses: azure/docker-login@v1
         with:
           login-server: ictlinktestkokubun.azurecr.io
-          username: ${{ secrets.ictlinktestkokubun }}
-          password: ${{ secrets.BMt7o3CiRFqd6RzVCdlg+3rbkAPfR7wRqepaGooXBU+ACRAx9obq }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - run: |
           docker build . -t ictlinktestkokubun.azurecr.io/k8sdemo:${{ github.sha }}
