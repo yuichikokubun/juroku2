@@ -35,7 +35,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy Container Registry
-      - run: |
+        run: |
           az acr login -n ${{ secrets.ACR }}
           docker pull mcr.microsoft.com/mcr/hello-world
           docker tag mcr.microsoft.com/mcr/hello-world ${{ secrets.ACR }}/samples/hello-world
