@@ -34,7 +34,7 @@ jobs:
 
       - name: login docker
         run: |
-          docker login ${{ secrets.FIREWALL_IP }}
+          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} ${{ secrets.FIREWALL_IP }}
       - name: Deploy Container Registry
         run: |    
           docker pull mcr.microsoft.com/mcr/hello-world
