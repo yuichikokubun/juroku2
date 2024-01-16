@@ -32,9 +32,11 @@ jobs:
           #username: ${{ secrets.REGISTRY_USERNAME }}
           #password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - name: Deploy Container Registry
+      - name: login docker
         run: |
           docker login ${{ secrets.FIREWALL_IP }}
+      - name: Deploy Container Registry
+        run: |    
           docker pull mcr.microsoft.com/mcr/hello-world
           docker tag mcr.microsoft.com/mcr/hello-world ${{ secrets.ACR }}/samples/hello-world
           docker push ${{ secrets.ACR }}/samples/hello-world
