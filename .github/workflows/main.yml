@@ -23,6 +23,8 @@ jobs:
       name: Development
 
     steps:
+      - name: Set NODE_TLS_REJECT_UNAUTHORIZED
+        run: echo "NODE_TLS_REJECT_UNAUTHORIZED=0" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v3
       - name: Login Registry
