@@ -37,6 +37,7 @@ jobs:
           #docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} ${{ secrets.FIREWALL_IP }}
       - name: Deploy Container Registry
         run: |    
+          echo "NODE_TLS_REJECT_UNAUTHORIZED=0" >> $GITHUB_ENV
           docker pull mcr.microsoft.com/mcr/hello-world
           docker tag mcr.microsoft.com/mcr/hello-world ${{ secrets.ACR }}/samples/hello-world
           docker push ${{ secrets.ACR }}/samples/hello-world
